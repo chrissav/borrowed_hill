@@ -1,12 +1,12 @@
 - name: Add Sensu Check
   hosts: ~tag_Name_2u-test-bast-test
   gather_facts: false
+  sudo: yes
   tasks:
-    - name: nginx check
-      sudo: yes
+    - name: merge_check
       sensu_check: name=custom_check
                    command='/etc/sensu/plugins/processes/check-procs.rb -f /var/run/nginx.pid'
                    standalone=true
                    interval=60
-                   path='/etc/sensu/conf.d/checks/oars/test.json'
+                   path='/etc/sensu/conf.d/checks/oars/merge.json'
                    occurrences=3
