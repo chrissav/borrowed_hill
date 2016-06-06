@@ -1,7 +1,7 @@
 - name: Add Sensu Check
   hosts: ~tag_Name_2u-test-bast-test
   gather_facts: false
-  sudo: yes
+  become: yes
   tasks:
     - name: check2
       sensu_check: name=custom_check_2
