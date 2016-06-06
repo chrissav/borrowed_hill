@@ -9,4 +9,4 @@
                    standalone=true
                    interval=60
                    path='/etc/sensu/conf.d/checks/{{repo}}/check2.json'
-                   occurrences=3
+                   occurrences=4
