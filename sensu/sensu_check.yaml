@@ -3,10 +3,10 @@
   gather_facts: false
   sudo: yes
   tasks:
-    - name: merge_check
-      sensu_check: name=custom_check
-                   command='/etc/sensu/plugins/processes/check-procs.rb -f /var/run/nginx.pid'
+    - sensu_check: name=check_nginx
+                   command='{{ plugin_path }}/plugin.py'
                    standalone=true
                    interval=60
-                   path='/etc/sensu/conf.d/checks/oars/merge.json'
+                   path='{{ check_path }}/custom_check_nginx.json'
                    occurrences=3
+                   handlers='mon-test@2u.com'
