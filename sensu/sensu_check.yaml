@@ -4,7 +4,7 @@
   sudo: yes
   tasks:
     - sensu_check: name=check_nginx
-                   command='{{ plugin_path }}/plugin.py'
+                   command='{{ plugin_path }}/plugin.rb'
                    standalone=true
                    interval=60
                    path='{{ check_path }}/custom_check_nginx.json'
