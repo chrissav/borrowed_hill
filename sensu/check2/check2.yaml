@@ -9,4 +9,4 @@
                    interval=60
                    path='{{ check_path }}/check2.json'
                    occurrences=4
-                   handler=mon-cms@2u.com
+                   handlers=mon-cms@2u.com
