@@ -1,5 +1,5 @@
 - name: Add Sensu Check
-  hosts: ~tag_Name_2u-test-bast-test
+  hosts: ~tag_Name_2u-test-bast-test.2u.com
   gather_facts: false
   sudo: yes
   tasks:
