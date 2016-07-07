@@ -4,9 +4,9 @@
   become: yes
   tasks:
     - sensu_check: name=custom_check_2
-                   command='{{ plugin_path }}/check-procs.rb -f /var/run/nginx.pid'
+                   command='ruby {{ plugin_path }}/plugin2.py bananas'
                    standalone=true
                    interval=60
                    path='{{ check_path }}/check2.json'
                    occurrences=4
-                   handlers='mon-cms@2u.com'
+                   handlers='mon-test@2u.com'
