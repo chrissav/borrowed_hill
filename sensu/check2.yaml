@@ -11,7 +11,7 @@
                    occurrences=4
                    handlers='mon-test@2u.com'
     - sensu_check: name=custom_check_3
-                   command='ruby {{ plugin_path }}/plugin2.rb cookies'
+                   command='ruby {{ plugin_path }}/plugin2.rb apples'
                    standalone=true
                    interval=60
                    path='{{ check_path }}/check2.json'
