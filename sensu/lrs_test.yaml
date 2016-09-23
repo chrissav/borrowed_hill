@@ -8,5 +8,4 @@
                    standalone=true
                    interval=60
                    path='{{ check_path }}/test_lrs_check.json'
-                   occurrences=3
                    handlers='mon-test@2u.com'
