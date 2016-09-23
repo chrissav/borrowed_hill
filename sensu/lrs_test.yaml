@@ -1,5 +1,5 @@
 - name: Add Sensu Check
-  hosts: ~tag_Name_corp-bi-lrs0-qa.2u.com
+  hosts: ~tag_Name_tech-sandbox-dev.2u.com
   gather_facts: false
   sudo: yes
   tasks:
