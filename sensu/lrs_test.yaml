@@ -1,12 +1,12 @@
 - name: Add Sensu Check
-  hosts: ~tag_Name_2u-test-bast-test.2u.com
+  hosts: ~tag_Name_corp-bi-lrs0-prod.2u.com
   gather_facts: false
   sudo: yes
   tasks:
-    - sensu_check: name=some_check
+    - sensu_check: name=test_check
                    command='ruby {{ plugin_path }}/plugin.rb'
                    standalone=true
                    interval=60
-                   path='{{ check_path }}/custom_check_nginx.json'
+                   path='{{ check_path }}/test_lrs_check.json'
                    occurrences=3
                    handlers='mon-test@2u.com'
