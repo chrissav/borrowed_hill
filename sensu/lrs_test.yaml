@@ -1,5 +1,5 @@
-- name: Add Sensu Check
-  hosts: ~tag_Name_i-faee25f6-oars-stg
+- name: Supervisor Check
+  hosts: ~tag_Environment_prod:&~tag_Product_oars:&~tag_Component_web
   gather_facts: false
   sudo: yes
   tasks:
