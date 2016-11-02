@@ -1,1 +1,1 @@
-This is a readme
+Test repo for custom sensu checks
