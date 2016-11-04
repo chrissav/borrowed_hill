@@ -1,5 +1,5 @@
 - name: Supervisor Check
-  hosts: ~tag_Environment_prod:&~tag_Product_oars:&~tag_Component_web
+  hosts: ~tag_Environment_stg:&~tag_Product_oars:&~tag_Component_web
   gather_facts: false
   sudo: yes
   tasks:
@@ -10,6 +10,5 @@
                    interval=60
                    refresh=11440
                    occurrences=1
-                   handlers=mon-oars-dev@2tor.pagerduty.com
-                   path='{{ check_path }}/check_supervisor.json'
+                   path='/etc/sensu/2u/oars/checks/check_supervisor.json'
                    state=absent
