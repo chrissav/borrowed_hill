@@ -1,0 +1,13 @@
+- name: Supervisor Check
+  hosts: ~tag_Name_tech-sandbox-dev
+  gather_facts: false
+  sudo: yes
+  tasks:
+    - name: supervisor
+      sensu_check: name=custom_check
+                   command='echo "it works"'
+                   standalone=true
+                   interval=60
+                   refresh=11440
+                   occurrences=5
+                   path='{{ check_path }}/echo_check.yaml'
