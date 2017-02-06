@@ -4,11 +4,10 @@
   sudo: yes
   tasks:
     - name: supervisor
-      sensu_check: name=custom_check
-                   command='echo "this is a new check"'
+      sensu_check: name=check2
                    standalone=true
                    interval=60
                    refresh=11440
                    occurrences=5
-                   path='{{ check_path }}/newcheck.json'
+                   path='{{ check_path }}/checknumber2.json'
                    handlers=mon-ops
