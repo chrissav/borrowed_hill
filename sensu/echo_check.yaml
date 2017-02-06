@@ -5,7 +5,7 @@
   tasks:
     - name: supervisor
       sensu_check: name=custom_check
-                   command='echo "it works"'
+                   command='echo "it works now"'
                    standalone=true
                    interval=60
                    refresh=11440
