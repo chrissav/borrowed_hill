@@ -5,9 +5,10 @@
   tasks:
     - name: supervisor
       sensu_check: name=custom_check
-                   command='echo "it works now"'
+                   command='echo "this is a new check"'
                    standalone=true
                    interval=60
                    refresh=11440
                    occurrences=5
-                   path='{{ check_path }}/echo_check.yaml'
+                   path='{{ check_path }}/newcheck.json'
+                   handlers=mon-ops
