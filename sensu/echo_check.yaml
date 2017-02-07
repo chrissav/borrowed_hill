@@ -7,6 +7,7 @@
       sensu_check: name=check2
                    standalone=true
                    interval=60
+                   command="echo 'it works'"
                    refresh=11440
                    occurrences=5
                    path='{{ check_path }}/checknumber2.json'
