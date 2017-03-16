@@ -1,14 +1,48 @@
-- name: Supervisor Check
+- name: Klondike
   hosts: ~tag_Name_tech-sandbox-dev
   gather_facts: false
   sudo: yes
   tasks:
     - name: supervisor
-      sensu_check: name=check2
-                   standalone=true
-                   interval=60
-                   command="echo 'it works'"
-                   refresh=11440
-                   occurrences=5
-                   path='{{ check_path }}/checknumber2.json'
-                   handlers=mon-ops
+      sensu_check:
+        name: custom_check_supervisor
+        command: 'sudo /opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-supervisor-socket.rb -c STOPPED,FATAL -s /var/klondike/corp-tech-prod/supervisor.sock'
+        standalone: true
+        interval: 60
+        refresh: 11440
+        occurrences: 2
+        handlers: shared-services-high-urgency@2tor.pagerduty.com,shared-services-low-urgency@2tor.pagerduty.com,statuspage
+        path: '{{ check_path }}/check_supervisor.json'
+        custom:
+          component_id: 4h9yqxlg9gy6
+          statuspage_component_critical: partial_outage
+    - name: sync delay
+      sensu_check:
+        name: custom_check_sync_delay
+        command: 'cd /var/klondike/corp-tech-prod && env/bin/python -m klondike.monitors.sync_delay'
+        standalone: true
+        interval: 60
+        refresh: 11440
+        occurrences: 1
+        handlers: shared-services-flex-urgency@2tor.pagerduty.com,shared-services-low-urgency@2tor.pagerduty.com,statuspage
+        path: '{{ check_path }}/check_supervisor.json'
+        custom:
+          component_id: 4h9yqxlg9gy6
+          statuspage_component_warning: ignore
+          statuspage_component_critical: degraded_performance
+          statuspage_incident_warning: ignore
+    - name: queue_length
+      sensu_check:
+        name: custom_check_queue_length
+        command: 'cd /var/klondike/corp-tech-prod && env/bin/python -m klondike.monitors.queue_length'
+        standalone: true
+        interval: 60
+        refresh: 11440
+        occurrences: 1
+        handlers: shared-services-flex-urgency@2tor.pagerduty.com,shared-services-low-urgency@2tor.pagerduty.com,statuspage
+        path: '{{ check_path }}/check_supervisor.json'
+        custom:
+          component_id: 4h9yqxlg9gy6
+          statuspage_component_warning: ignore
+          statuspage_component_critical: degraded_performance
+          statuspage_incident_warning: ignore
