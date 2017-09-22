@@ -1,0 +1,14 @@
+- name: PA Ping Checks
+  hosts: ~tag_Name_tech-ops-sensu\d-dev
+  gather_facts: false
+  sudo: yes
+  tasks:
+    - sensu_check:
+        name: gu-msn-pa-prod
+        command: '/usr/lib/nagios/plugins/check_http -H gu-msn-pa-prod.2u.com -u /ping -r 'OK' -f follow --sni'
+        standalone: true
+        interval: 180
+        refresh: 11440
+        occurrences: 3
+        handlers: PD-port-authority-dev,mon-pa@2u.com
+        path: '{{ check_path }}/gu-msn-pa-prod.json'
