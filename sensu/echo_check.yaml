@@ -11,7 +11,7 @@
         interval: 60
         refresh: 11440
         occurrences: 2
-        handlers: shared-services-high-urgency@2tor.pagerduty.com,shared-services-low-urgency@2tor.pagerduty.com,statuspage
+        handlers: mon-ops
         path: '{{ check_path }}/check_supervisor.json'
         custom:
           component_id: 4h9yqxlg9gy6
@@ -24,7 +24,7 @@
         interval: 60
         refresh: 11440
         occurrences: 1
-        handlers: shared-services-flex-urgency@2tor.pagerduty.com,shared-services-low-urgency@2tor.pagerduty.com,statuspage
+        handlers: mon-ops
         path: '{{ check_path }}/check_supervisor.json'
         custom:
           component_id: 4h9yqxlg9gy6
@@ -39,7 +39,7 @@
         interval: 60
         refresh: 11440
         occurrences: 1
-        handlers: shared-services-flex-urgency@2tor.pagerduty.com,shared-services-low-urgency@2tor.pagerduty.com,statuspage
+        handlers: mon-ops
         path: '{{ check_path }}/check_supervisor.json'
         custom:
           component_id: 4h9yqxlg9gy6
