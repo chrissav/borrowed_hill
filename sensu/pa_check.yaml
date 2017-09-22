@@ -12,4 +12,5 @@
         standalone: false
         subscribers: 'roundrobin:blackbox'
         handlers: PD-port-authority-dev,mon-pa@2u.com
+        source: 'gu-msn-pa-prod.2u.com'
         path: '{{ check_path }}/gu-msn-pa-prod.json'
